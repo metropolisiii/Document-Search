@@ -1,0 +1,195 @@
+<div class="page-container">
+    <div class="navigation-shade-container">
+        <div class="navigation-shade"></div>
+    </div>
+    <div class="mobile-navigation-container">
+        <div class="mobile-navigation">
+            <div class="core-navigation-container">
+                <div class="core-navigation">
+                    <ul id="nav-header-mobile" class="">
+						<li id="menu-item-{{ item.id}}" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-{{item.id}}" ng-repeat="item in navheader.items">
+							<a href="{{item.url}}">{{item.title}}</a>
+							<ul class='sub-menu' ng-show="{{items.children}}">
+								<li ng-repeat="subitem in item.children" id="menu-item-{{subitem.id}}" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-{{subitem.id}}">
+									<a href="{{subitem.url}}">{{subitem.title}}</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+                </div>
+            </div>
+            <div class="secondary-navigation-container">
+                <div class="secondary-navigation">
+                    <div class="back-navigation">
+                        <a href="#" class="back-navigation-link">
+                            <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="demographics-container">
+                <ul class="demographics">
+                    <li class="demographics-item">
+                        <a href="{{SITE_URL}}/about/member-home/" class="demographics-link">Members</a>
+                    </li>
+                    <li class="demographics-item">
+                        <a href="{{SITE_URL}}/about/suppliers/" class="demographics-link">Vendors</a>
+                    </li>
+                    <li class="demographics-item">
+                        <a href="{{SITE_URL}}/about/media/" class="demographics-link">Media</a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="social-container">
+                <div class="social">
+                    <div class="social-header-container">
+                        <h6 class="social-header">Follow us</h6>
+                    </div>
+                    <ul class="social-list">
+                        <li class="social-list-item linkedin">
+                            <a href="http://www.linkedin.com/company/14315" class="social-link">
+                                <i class="fa fa-linkedin" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li class="social-list-item twitter">
+                            <a href="https://twitter.com/company" class="social-link">
+                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li class="social-list-item youtube">
+                            <a href="https://www.youtube.com/channel/UCWVEEclDccugM_EdO7YMKuQ" class="social-link">
+                                <i class="fa fa-youtube" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li class="social-list-item facebook">
+                            <a href="https://www.facebook.com/company/" class="social-link">
+                                <i class="fa fa-facebook" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header-container">
+        <header class="header">
+            <div class="utility-container">
+                <div class="utility">
+                    <div class="header-one-container">
+                        <h1 class="header-one">Non-Profit Innovation and R&D Lab</h1>
+                    </div>
+                    <div class="demographics-container">
+                        <ul class="demographics">
+                            <li class="demographics-item">
+                                <a href="{{SITE_URL}}/about/member-home/" class="demographics-link">Members</a>
+                            </li>
+                            <li class="demographics-item">
+                                <a href="{{SITE_URL}}/about/suppliers/" class="demographics-link">Vendors</a>
+                            </li>
+                            <li class="demographics-item">
+                                <a href="{{SITE_URL}}/about/media/" class="demographics-link">Media</a>
+                            </li>
+                        </ul>
+                    </div>
+                   
+                </div>
+            </div>
+            <div class="subheader-container">
+                <div class="subheader">
+                    <div class="navigation-button-container">
+                        <a href="#" class="navigation-button-link closed">
+                            <i class="fa fa-bars" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <div class="logo-container">
+                        <a href="/" class="logo-link">
+                            <img class="logo" src="{{SITE_URL}}images/logo.png">
+                        </a>
+                    </div>
+                    <div class="navigation-container">
+                        <ul id="nav-header" class="">
+							<li id="menu-item-{{ item.id}}" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-{{item.id}}" ng-repeat="item in navheader.items">
+								<a href="{{item.url}}">{{item.title}}</a>
+								<ul class='sub-menu'>
+									<li ng-repeat="subitem in item.children" id="menu-item-{{subitem.id}}" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-{{subitem.id}}">
+										<a href="{{subitem.url}}">{{subitem.title}}</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+                    </div>
+                    <div class="social-container">
+                        <ul class="social">
+                            <li class="social-item share">
+                                <a href="#" class="social-link"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
+                                <div class="social-menu">
+                                    <div class="social-header-container">
+                                        <h6 class="social-header">Follow us</h6>
+                                    </div>
+                                    <ul class="social-list">
+                                        <li class="social-list-item linkedin">
+                                            <a href="http://www.linkedin.com/company/14315" class="social-link">
+                                                <i class="fa fa-linkedin" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li class="social-list-item twitter">
+                                            <a href="https://twitter.com/company" class="social-link">
+                                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li class="social-list-item facebook">
+                                            <a href="https://www.facebook.com/company/" class="social-link">
+                                                <i class="fa fa-facebook" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="social-item rss">
+                                <a href="{{SITE_URL}}/feed" class="social-link"><i class="fa fa-rss" aria-hidden="true"></i></a>
+                            </li>
+                            <li class="social-item search">
+                                <a href="#" class="social-link"><i class="fa fa-search" aria-hidden="true"></i></a>
+                                <div class="search-form-container">
+                                    <form class="search-form" action="https://www.company.com/" method="get">
+                                        <input type="text" name="s" value="" placeholder="Search..." class="search-form-text" />
+                                        <button type="submit" class="search-form-button"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                    </form>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+	<div class="header_row4">
+		<div class="page_width clearfix">
+			<div class="share_page">
+				<p>Share<span> this page</span>:</p>				
+				<ul class="social_icon2">
+					<li class="icon_f"><a target="_blank" href="http://www.facebook.com/sharer/sharer.php?u={{specdata.specInfo.current_page}}&title={{specdata.specInfo.results[0].succinctProperties['D.cmis:description']}}">Facebook</a></li>
+					<li class="icon_t"><a target="_blank" href="http://twitter.com/share?&url={{specdata.specInfo.current_page}}&text={{specdata.specInfo.results[0].succinctProperties['D.cmis:description']}}">Twitter</a></li>
+					<li class="icon_g"><a target="_blank" href="https://plus.google.com/share?url={{specdata.specInfo.current_page}}">Google+</a></li>
+					<li class="icon_in"><a target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&url={{specdata.specInfo.current_page}}&title={{specdata.specInfo.results[0].succinctProperties['D.cmis:description']}}">Linkedin</a></li>
+				</ul>			
+			</div>
+			<ul class="sub_nav" ng-if="$root.page=='Search'">
+				<li class="on first-item">
+					<a href="{{SITE_URL}}/specification/">Search Specifications Library</a>
+				</li>
+				<li class="last-item">
+					<a href="{{SITE_URL}}/specs/certification/">Certification</a>
+				</li>
+			</ul>
+			<ul class="sub_nav" ng-if="$root.page=='Spec'">
+				<li class="on first-item">
+					<a href="javascript:void(0);" ng-click="go_back()">Back to Search Results</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+
+

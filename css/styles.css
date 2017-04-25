@@ -1,0 +1,267 @@
+@font-face {
+    font-family: "soleto";
+    font-style: normal;
+    font-weight: 700;
+    src: url("https://fonts.typekit.net/af/52838d/000000000000000000017679/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7") format("woff2");
+}
+@font-face {
+    font-family: "soleto";
+    font-style: italic;
+    font-weight: 700;
+    src: url("https://fonts.typekit.net/af/be8c8b/00000000000000000001767a/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7") format("woff2");
+}
+@font-face {
+    font-family: "soleto";
+    font-style: italic;
+    font-weight: 400;
+    src: url("https://fonts.typekit.net/af/9716ca/000000000000000000017675/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4") format("woff2");
+}
+@font-face {
+    font-family: "soleto";
+    font-style: normal;
+    font-weight: 500;
+    src: url("https://fonts.typekit.net/af/d9d614/000000000000000000017676/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n5") format("woff2");
+}
+@font-face {
+    font-family: "soleto";
+    font-style: italic;
+    font-weight: 500;
+    src: url("https://fonts.typekit.net/af/b4eea9/000000000000000000017678/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i5") format("woff2");
+}
+@font-face {
+    font-family: "soleto";
+    font-style: normal;
+    font-weight: 400;
+    src: url("https://fonts.typekit.net/af/37c646/000000000000000000017673/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4") format("woff2");
+}
+
+html{
+	background:#f3f3f3;
+}
+body {
+    font-family: "soleto",sans-serif;
+	background:#f3f3f3;
+}
+div.spec_versions .results_list li .res1,div.spec_versions .results_list li .res2,div.spec_versions .results_list li .res3,div.spec_versions .results_list li .res4,div.spec_versions .results_list li .res5,div.spec_versions .results_list li .res6,div.spec_versions .results_list li .res7,div.spec_versions .results_list li .res8{
+	clear:none !important;
+	float:left !important;
+}
+div.spec_versions .results_list li .res1{
+	width:15% !important;
+}
+div.spec_versions .results_list li .res2{
+	width:25% !important;
+}
+div.spec_versions .results_list li .res3{
+	width:40% !important;
+}
+div.spec_versions .results_list li .res4{
+	width:143px !important;
+}
+div.spec_versions .results_list li .res5{
+	width:94px !important;
+}
+div.spec_versions .results_list li .res6{
+	width:90px !important;
+}
+div.spec_versions .results_list li .res7{
+	width:43px !important;
+}
+div.spec_versions .results_list li .res8{
+	width:20% !important;
+}
+.results_list li{
+	background:#ffffff;
+}
+.specresults_table {
+    display: table;
+    width: 100%;
+	background: #ffffff none repeat scroll 0 0;
+}
+.specresults_row {
+    display: table-row;
+    font-size: 14px;
+    overflow: hidden;
+    padding: 2px 0;
+    width: 100%;
+}
+.tcell {
+    display: table-cell;
+    float: none !important;
+}
+.li_even {
+    background-color: #e6e6e6;
+}
+.tcell p {
+    padding: 10px;
+}
+#spinner {
+    height: 35px;
+    left: 0;
+    padding-top: 40px;
+    position: absolute;
+    text-align: center;
+    top: 290px;
+    width: 100%;
+    z-index: 10;
+}
+strong{
+	color: red;
+    font-weight: 400;
+    line-height: 120%;
+}
+.tcell span{
+	display:none;
+}
+.pager a.active{
+	background: red none repeat scroll 0 0;
+    color: #fff;
+}
+.pager a {
+    cursor: pointer;
+}
+input[type=checkbox]
+{
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(1.5); /* IE */
+  -moz-transform: scale(1.5); /* FF */
+  -webkit-transform: scale(1.5); /* Safari and Chrome */
+  -o-transform: scale(1.5); /* Opera */
+  transform: scale(1.5);
+  padding: 10px;
+  border: medium none !important;
+    float: left;
+    margin-right: 6px;
+    padding: 10px;
+    position: relative;
+    top: 2px;
+}
+.head-wide .form_item input[type='checkbox'] {
+    -webkit-appearance: checkbox !important;
+}
+
+
+@media (max-width: 992px) {
+	select {
+		width: 185px !important;
+	}	
+}
+@media (max-width: 767px){
+	.specresults_table,.specresults_row,.tcell{
+		display:block;
+	}
+	.result_title{
+		display:none !important;
+	}
+	.tcell span{
+		display:inline;
+	}
+	.tcell p {
+		padding: 0 0 0 10px;
+	}
+	.tcell{
+		width:60%;
+	}
+	.download_link {
+		float: right !important;
+		padding-right: 15px;
+		position: relative;
+		text-align: right;
+		top: -150px;
+		width: 30%;
+	}
+	.specresults_row {
+		padding: 15px 0 2px;
+	}
+	.search_form {
+		padding: 18px 0 22px;
+	}
+	.page_width {
+		margin: 0 10px;
+		width: auto !important;
+	}
+	.ng-scope {
+		width: 100%;
+	}
+	.head-wide .form_item {
+		width: 335px;
+	}
+	.form_item input[type="text"] {
+		height: 36px;
+		line-height: inherit;
+		max-width: 100%;
+		width: 221px;
+	}
+	.head-wide .right {
+		clear: both !important;
+		display: block;
+		top: 0;
+		width: 335px;
+	}
+	.search_form .cols, .hide-wide {
+		padding: 0 20px;
+	}	
+	.search_form .cols .form_item {
+		padding-bottom: 15px;
+		width: 90%;
+	}
+	.search_form .cols .form_item select {
+		width: 100% !important;
+	}
+}
+@media (max-width:480px){
+	.result_num {
+		background: #343434 none repeat scroll 0 0;
+		color: #fff;
+		font-family: "roboto",sans-serif;
+		font-size: 14px;
+		font-weight: 700;
+		padding: 5px 10px;
+		text-transform: uppercase;
+	}
+	#spinner{
+		top:415px;
+	}
+	.pager a{
+		font-size:17px;
+	}
+}
+@media(max-width:380px){
+	.head-wide .form_item_first {
+		margin: 0;
+		width: auto;
+	}
+	.form_item input[type="text"] {
+		display: inline-block;
+		float: none;
+		margin: 0 -2px 0 0;
+		padding-left: 0.5%;
+		padding-right: 0.5%;
+		position: relative;
+		top: -2px;
+		width: 70%;
+	}
+	.head-wide .form_item_first button {
+		display: inline-block;
+		float: none;
+		margin: 0;
+		padding-left: 0.5%;
+		padding-right: 0.5%;
+		top: 0;
+		width: 29%;
+	}		
+	.form_select input.form_check[type="checkbox"] + label.check_box {
+		display: block;
+		margin-bottom: 8px;
+	}
+	.download_link {
+		padding-bottom: 10px;
+		top: 0;
+	}
+	.head-wide .right {
+		width: 80%;
+	}
+	.pager a{
+		font-size:13px;
+	}
+}

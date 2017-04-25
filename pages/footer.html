@@ -1,0 +1,131 @@
+<div class="footer-container">
+	<footer class="footer">
+		<div class="specifications-container">
+			<div class="specifications-heading-container">
+				<h2 class="specifications-heading">Sample Technologies</h2>
+			</div>
+			<div class="specifications-list-container">
+				<ul class="specifications-list">
+					<li class="specification-item">
+						<a href="{{SITE_URL}}/specs/#tabs-695" class="specification-link">DOCSIS</a>
+					</li>
+					<li class="specification-item">
+						<a href="{{SITE_URL}}/specs/#tabs-700" class="specification-link">DPOE</a>
+					</li>
+					<li class="specification-item">
+						<a href="{{SITE_URL}}/specs/#tabs-9613" class="specification-link">DPOG</a>
+					</li>
+					<li class="specification-item">
+						<a href="{{SITE_URL}}/specs/#tabs-702" class="specification-link">MetaData</a>
+					</li>
+					<li class="specification-item">
+						<a href="{{SITE_URL}}/specs/#tabs-708" class="specification-link">PacketCable</a>
+					</li>
+					<li class="specification-item">
+						<a href="{{SITE_URL}}/specs/#tabs-706" class="specification-link">Video</a>
+					</li>
+					<li class="specification-item">
+						<a href="{{SITE_URL}}/specs/#tabs-710" class="specification-link">Wireless</a>
+					</li>
+					<li class="specification-item">
+						<a href="{{SITE_URL}}/specs/#tabs-5501" class="specification-link">Security</a>
+					</li>
+					<li class="specification-item">
+						<a href="{{SITE_URL}}/specs/#tabs-712" class="specification-link">Company</a>
+					</li>
+					<li class="specification-item">
+						<a href="{{SITE_URL}}/specs/#tabs-12233" class="specification-link">Virtualization and Network Evolution</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="utility-container">
+			<div class="utility">
+				<ul id="nav-footer" class="">
+					<li ng-repeat="item in navfooter.items" id="menu-item-{{item.id}}" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-{{item.id}}"><a href="{{item.url}}">{{item.title}}</a>
+						<ul class="sub-menu">
+							<li ng-repeat="subitems in item.children" id="menu-item-{{subitems.id}}" class="col menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-{{subitems.id}}"><a href="#">col</a>
+								<ul class="sub-menu">
+									<li ng-repeat="menuoption in subitems.children" id="menu-item-{{menuoption.id}}" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-{{menuoption.id}}"><a href="{{menuoption.url}}">{{menuoption.title}}</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="summary-container">
+			<div class="summary">
+				<div class="company-container">
+					<div class="company">
+						<div class="logo-container">
+							<img src="{{SITE_URL}}images/footer-logo.png" class="logo" />
+						</div>
+						
+						<div class="social-container">
+							<div class="social-header-container">
+								<h6 class="social-header">Follow us</h6>
+							</div>
+							<ul class="social">
+								<li class="social-item linkedin">
+									<a href="http://www.linkedin.com/company/14315" class="social-link">
+										<i class="fa fa-linkedin" aria-hidden="true"></i>
+									</a>
+								</li>
+								<li class="social-item twitter">
+									<a href="https://twitter.com/company" class="social-link">
+										<i class="fa fa-twitter" aria-hidden="true"></i>
+									</a>
+								</li>
+								<li class="social-item youtube">
+									<a href="https://www.youtube.com/channel/UCWVEEclDccugM_EdO7YMKuQ" class="social-link">
+										<i class="fa fa-youtube" aria-hidden="true"></i>
+									</a>
+								</li>
+								<li class="social-item facebook">
+									<a href="https://www.facebook.com/company/" class="social-link">
+										<i class="fa fa-facebook" aria-hidden="true"></i>
+									</a>
+								</li>
+							</ul>
+						</div>
+						<div class="copyright-container">
+							<p class="copyright">
+								&copy; Company {{copyright_year}}<br/>
+								<a class="copyright-link" href="{{SITE_URL}}/site-map/">Site Map</a> | <a class="copyright-link" href="{{SITE_URL}}/privacy-policy/">Privacy Policy</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+</div>
+<div class="sub-footer-container">
+	<footer class="sub-footer">
+		<div class="project-list-container">
+			<ul class="project-list">
+				<li class="project-list-item">
+					<a class="project-list-link" href="http://www.tekstadium.com/" target="_blank">
+						<img class="project-list-logo" src="{{SITE_URL}}images/projects/tek-stadium.png" />
+					</a>
+				</li>
+				<li class="project-list-item">
+					<a class="project-list-link" href="news-events/blog/" target="_blank">
+						<img class="project-list-logo" src="{{SITE_URL}}images/projects/informed.png" />
+					</a>
+				</li>
+				<li class="project-list-item">
+					<a class="project-list-link" href="http://www.company.com/" target="_blank">
+						<img class="project-list-logo" src="{{SITE_URL}}images/projects/kyrio.png" />
+					</a>
+				</li>
+				<li class="project-list-item">
+					<a class="project-list-link" href="http://company.com/" target="_blank">
+						<img class="project-list-logo" src="{{SITE_URL}}images/projects/up-ramp.png" />
+					</a>
+				</li>
+			</ul>
+		</div>
+	</footer>
+</div>

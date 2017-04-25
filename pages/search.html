@@ -1,0 +1,139 @@
+<h1>
+	<span>Search Specifications Library</span>
+</h1>
+<div id="content" ng-controller="SearchCtrl" class="page_width clearfix">
+	<div class="tips" style="display:none;">
+		<span class="close_tips"></span>Tip: Use the filters below to locate specifications. If you know the designation number, enter it as a Search Term.
+	</div>
+	
+	<div class="search_form clearfix">
+		<div class="head-wide">
+			<div class="form_item form_item_first">
+				<label>Search For</label>
+				<input type="text" name="q" id="q" ng-enter="changeQuery(query)" ng-model="query" value="Enter Search Term..."/>
+				<button type="submit" ng-click="changeQuery(query)" class="btn-red">Search</button>
+			</div>
+			<div class="form_item form_select right">
+				<input id="search_arch1" ng-model="isSearchingContent.value" ng-true-value="'true'" ng-false-value="'false'" ng-click="searchFileContent(query)" type="checkbox" name="a1" value="1">
+				<label for="search_arch1">Search File Content</label>
+				<input id="search_arch" ng-model="isSearchingArchives.value" ng-true-value="'true'" ng-false-value="'false'" ng-click="searchArchives(query)" type="checkbox" name="a" value="1">
+				<label for="search_arch">Include Archives</label>      
+			</div>
+		</div>
+		<div class="cols">
+			<div class="form_item">
+				<label>Project Category</label>
+				<div class="css_select">
+					<select ng-model="category" ng-change="changeCategory(category)" ng-options="c.value as c.value for c in specsCategories" class="hasCustomSelect" name="specification_cat" id="specification_cat" style="width: 277px; height: 30px; font-size: 14px;">
+						<option value="">Select category</option>
+					</select>
+				</div>
+			</div>
+			
+			<div class="form_item">
+				<label>Subcategory</label>
+				
+				<div class="css_select">
+					<select ng-model="subcategory" ng-change="changeSubcategory(subcategory)" ng-options="s.value as s.name for s in subcategories" class="hasCustomSelect" id="specification_subcat" name="specification_subcat" style="width: 277px; height: 30px; font-size: 14px;">
+						<option value="">Select subcategory</option>
+					</select>
+				</div>
+			</div>
+		   
+		   <div class="form_item" ng-controller="DoctypeCtrl">
+				<label>Document Type</label>
+				<div class="css_select">
+					<select ng-model="doctype" ng-change="changeDoctype(doctype)" ng-options="d for d in specsDoctypes" class="hasCustomSelect" name="specification_type" id="specification_type" style="width: 277px; height: 30px; font-size: 14px;">
+						<option value="">Select type</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		 <div class="form_item form_item_first form_select right-links">
+			<a href="#" ng-click='resetFields()' class="specf_filter_frm_reset"><span class="ico-reset"></span>Reset</a>
+			<a href="javascript:void(0);" ng-click="copy_link_button = 'Copied'" ngclipboard data-clipboard-text="{{copyLink();}}" class="" id="copy_to_clipboard_filter"><span class="ico-copy"></span><span class="clip_button">{{copy_link_button}}</span></a>
+		</div>
+	</div>
+	<div>
+		<div class="result_num">Page {{currentPage}} of {{totalPages}} ({{numResults}} Results)</div>
+		<div id="spinner" style="display:none">
+			<img ng-src="images/spinner_squares_circle.gif">
+		</div>
+		<div id='specresults' class='specresults_table specification_results_list_wrapper' style='display:none'>
+			<div class="result_title specresults_row">
+				<div class="tit1 tcell"><span id="sort_title" ng-click="orderBy($event,'title');" ng-class="{selected:direction === 'desc' && sortBy === 'title'}" class="sort"><br />Title</span></div>
+				<div class="tit2 tcell"><span id="sort_published" ng-click="orderBy($event,'date');" ng-class="{selected:direction === 'desc' && sortBy === 'date'}" class="sort">Date<br />Published</span></div>
+				<div class="tit3 tcell"><span id="sort_version" ng-click="orderBy($event,'version');" ng-class="{selected:direction === 'desc' && sortBy === 'version'}" class="sort"><br/>Ver</span></div>
+				<div class="tit4 tcell"><span id="sort_designation" ng-click="orderBy($event,'name');" ng-class="{selected:direction === 'desc' && sortBy === 'name'}" class="sort"><br />Doc ID</span></div>
+				<div class="tit5 tcell"><span id="sort_doctype" ng-click="orderBy($event,'doctype');" ng-class="{selected:direction === 'desc' && sortBy === 'doctype'}" class="sort"><br />DocType</span></div>
+				<div class="tit6 tcell"><span id="sort_docs"  ng-click="orderBy($event,'supportdocs');" ng-class="{selected:direction === 'desc' && sortBy === 'supportdocs'}" class="sort">Support<br />Docs</span></div>
+				<div class="tit7 tcell"><span id="sort_ecn" ng-click="orderBy($event,'ecns');" ng-class="{selected:direction === 'desc' && sortBy === 'ecns'}" class="sort"><br />ECN</span></div>
+				<div class="tit8 tcell"><span><br />Download</span></div>
+			</div>	
+			<div ng-if='numResults != 0' class='specresults_row' ng-repeat="spec in searchResults" ng-class-even="'li_even'">
+				<div class='res1 tcell'>
+					<p>
+						<strong><a href='/specification/{{spec.succinctProperties["D.cl:slug"]}}'>{{spec.succinctProperties["D.cmis:description"]}}</a></strong><br/>
+						Project Category: {{spec.succinctProperties["D.cl:category"]}}<br/>
+						Subcategory: {{spec.succinctProperties["D.cl:subCategory"]}}<br/>
+					</p>
+				</div>
+				<div class='res2 tcell'>
+					<p>
+						<span>Date: </span>
+						{{spec.succinctProperties["D.cl:publishDate"] | date:'MM/dd/yy'}}
+					</p>
+				</div>
+				<div class='res3 tcell'>
+					<p>
+						<span>Version: </span>
+						{{spec.succinctProperties["version"]}}
+					</p>
+				</div>
+				<div class='res4 tcell'>
+					<p>
+						<span>Designation: </span>
+						{{spec.succinctProperties["D.cl:documentId"]}}
+					</p>
+				</div>
+				<div class='res5 tcell'>
+					<p>
+						<span>Doc Type: </span>
+						{{spec.succinctProperties["D.cl:documentType"]}}
+					</p>
+				</div>
+				<div class='res6 tcell'>
+					<p>
+						<span>Support Docs: </span>
+						<div ng-if="spec.succinctProperties['D.cl:hasSupportDocs'] == true">Yes</div>
+						<div ng-if="spec.succinctProperties['D.cl:hasSupportDocs'] == false">No</div>
+					</p>
+				</div>	
+				<div class='res7 tcell'>
+					<p>
+						<span>ECN: </span>
+						<div ng-if="spec.succinctProperties['D.cl:hasRelatedECNs'] == true">Yes</div>
+						<div ng-if="spec.succinctProperties['D.cl:hasRelatedECNs'] == false">No</div>
+					</p>
+				</div>
+				<div class='tcell download_link'>
+					<p>
+						<a class='row-download' href='#'>Download</a>
+					</p>
+				</div>
+			</div>
+		</div>	
+		<div ng-if='numResults == 0' style='background: #fff none repeat scroll 0 0; padding-bottom: 16px; padding-top: 16px;'>
+			<h2>
+				<center>No results found.</center>
+			</h2>
+		</div>
+		<div ng-if='numResults != 0' class="pagination_wrapper">
+			<div class="pager specification_search">
+				<a class="page_prev" ng-if="currentPage != 1" ng-click="setPage(currentPage-1);"></a>
+				<a ng-repeat="page in pages" ng-class="{active:currentPage === page}" ng-click="setPage(page);">{{page}}</a>
+				<a class="page_next" ng-if="currentPage != totalPages" ng-class="{disabled:currentPage === totalPages}" ng-click="setPage(currentPage + 1);"></a>
+			</div>
+		</div>
+	</div>
+</div>

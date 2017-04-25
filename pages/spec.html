@@ -1,0 +1,114 @@
+<h1>
+	<span>Specification Detail</span>
+</h1>
+<div id="content" class="page_width clearfix" ng-controller="SpecController">
+	<div id="spinner" style="display:none">
+		<img ng-src="images/spinner_squares_circle.gif">
+	</div>
+	
+	<div id="spec_details" style="display:none">
+		<div ng-if='spec != false'>
+			<div class="main_content2" style="float:left; width:70%">
+				<div class="about_block">
+					<h3>{{spec["D.cmis:description"]}}</h3>
+					<h2>Version {{spec["D.cl:documentVersion"]}} <span class="spec_ver" ng-if="spec['D.cl:isCurrentVersion']">Newest Version</span></h2>
+					<div class="btn_side spec_btn">
+						<a href="#">Download Spec</a>
+					</div>
+					<div class="about_box">
+						<div class="about_txt about_txt_full spec_detail">
+							<h2>Spec Details</h2>
+							<p>
+								<span class="c1">Publish Date:</span>
+								<span class="c2">{{spec['D.cl:publishDate'] | date:'MM/dd/yyyy'}}</span>
+							</p>
+							<p>
+								<span class="c1">Document Type:</span>
+								<span class="c2">{{spec['D.cl:documentType']}}</span>
+							</p>
+							<p>
+								<span class="c1">Project Category:</span>
+								<span class="c2">{{spec['D.cl:category']}}</span>
+							</p>
+							<p>
+								<span class="c1">Project Subcategory:</span>
+								<span class="c2">{{spec['D.cl:subCategory']}}</span>
+							</p>
+							<p>
+								<span class="c1">Doc ID:</span>
+								<span class="c2">{{spec["D.cl:documentId"]}}</span>
+							</p>
+							<p>
+								<span class="c1">Status:</span>
+								<span class="c2">{{spec['D.cl:techPubDocumentStatus']}}</span>
+							</p>
+							<p>
+								<span class="c1">File Size:</span>
+								<span class="c2">{{(spec['D.cmis:contentStreamLength'])/1024/1024 | number:2}}mb</span>
+							</p>
+						</div>
+					</div>
+					<h1>
+						<span>All Versions</span>
+					</h1>
+					<div class="spec_versions">
+						<ul class="results_list">
+							<li style="cursor: pointer;" ng-repeat="version in spec.versions" ng-class="computeCssClass($first); {li_over:hover}" ng-mouseenter="hover=true" ng-mouseleave="hover=false" ng-class-even="'li_even'">
+								<a ng-click="getDocVersion(version.number)" href="/specification/{{version.slug}}?v={{version.number}}">
+									<div class="res1">
+										<p>Version {{version.fullversion}}</p>
+									</div>
+									<div class="res2">
+										<p>
+											<span>Date:</span>
+											{{version.date| date:'MM/dd/yyyy'}}
+										</p>
+									</div>
+									<div class="res3">
+										<p>Attached Docs: {{version.hasAttachments}}</p>
+									</div>
+								</a>
+								<div class="res8">
+									<p>
+										<a href="download?id={{version.objectId}}">Download</a>
+									</p>
+								</div>						
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<aside class="sidebar2 sidebar_spec" style="float:right; width:25%">
+				<h1>
+					<span>Attached Related Docs</span>
+				</h1>	
+				<div class="subtitle" ng-show="!spec.ecns.length && !spec.supportdocs.length">
+					<p>No supporting documents found for this specificiation</p>
+				</div>
+				<div class="spec_detail_box" ng-show="spec.ecns.length">
+					<h4>Related ECNs</h4>
+					<div ng-repeat="ecn in spec.ecns">
+						<h5>{{ecn.name}}</h5>
+						<p>
+							{{ecn.date| date:'MM/dd/yyyy'}} •
+							<a href="download?id={{ecn.objectId}}">Download</a>
+						</p>
+					</div>
+				</div>
+				<div class="spec_detail_box" ng-show="spec.supportDocs.length">
+					<h4>Support Docs</h4>
+					<div ng-repeat="supportdoc in spec.supportDocs">
+						<h5>{{supportdoc.name}}</h5>
+						<p>
+							{{supportdoc.date| date:'MM/dd/yyyy'}} •
+							<a href="download?id={{supportdoc.objectId}}">Download</a>
+						</p>
+					</div>
+				</div>
+			</aside>
+		</div>
+	</div><!--#spec_details-->
+	<div ng-if="!spec" id="spec_details_not_found" style="display:none">
+		<h1><span>No specification found</span></h1>
+	</div>
+</div>
